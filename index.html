@@ -248,6 +248,96 @@
             margin-bottom: 15px;
             opacity: 0.5;
         }
+
+        .sample-output {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sample-output h2 {
+            color: #4fc3f7;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .sample-output p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sample-screenshot {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .sample-screenshot h3 {
+            color: #4fc3f7;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .sample-data {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #4fc3f7;
+        }
+
+        .sample-data h4 {
+            color: #4fc3f7;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .sample-data ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sample-data li {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 12px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            color: #e0e0e0;
+        }
+
+        .sample-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .sample-stat {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .sample-stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #4fc3f7;
+            margin-bottom: 5px;
+        }
+
+        .sample-stat-label {
+            color: #b0b0b0;
+            font-size: 0.85em;
+        }
     </style>
 </head>
 <body>
@@ -258,6 +348,9 @@
         </header>
 
         <div class="input-section">
+            <div style="background: rgba(255, 193, 7, 0.1); border: 1px solid rgba(255, 193, 7, 0.3); padding: 15px; border-radius: 10px; margin-bottom: 20px; color: #ffc107;">
+                <strong>⚠️ Note:</strong> This tool requires a local server to run. Please start the Flask server by running <code style="background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px;">python server.py</code> before using this interface. The server must be running on <code style="background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px;">http://localhost:5000</code>
+            </div>
             <div class="input-group">
                 <label for="folderPath">Folder Path:</label>
                 <input 
@@ -294,6 +387,82 @@
                 <h2><span class="card-icon">📊</span> Summary</h2>
                 <div id="summary" class="card-content"></div>
             </div>
+
+        <!-- Sample Output Section -->
+        <div class="sample-output">
+            <h2>📸 Sample Output</h2>
+            <p>Here's what the analysis looks like when you run it on the sample project (D:\test-project)</p>
+            
+            <div class="sample-screenshot">
+                <h3>📝 Missing Docstrings (16 functions)</h3>
+                <div class="sample-data">
+                    <h4>calculator.py - 3 functions missing docs:</h4>
+                    <ul>
+                        <li>calculator.py:multiply</li>
+                        <li>calculator.py:divide</li>
+                        <li>calculator.py:power</li>
+                    </ul>
+                </div>
+                
+                <div class="sample-data">
+                    <h4>user_manager.py - 5 functions missing docs:</h4>
+                    <ul>
+                        <li>user_manager.py:create_user</li>
+                        <li>user_manager.py:delete_user</li>
+                        <li>user_manager.py:get_user</li>
+                        <li>user_manager.py:update_user</li>
+                        <li>user_manager.py:list_users</li>
+                    </ul>
+                </div>
+                
+                <div class="sample-data">
+                    <h4>database.py - 8 functions missing docs:</h4>
+                    <ul>
+                        <li>database.py:connect_database</li>
+                        <li>database.py:execute_query</li>
+                        <li>database.py:fetch_all</li>
+                        <li>database.py:insert_record</li>
+                        <li>database.py:update_record</li>
+                        <li>database.py:delete_record</li>
+                        <li>database.py:close_connection</li>
+                        <li>database.py:backup_database</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sample-screenshot">
+                <h3>🧪 Missing Tests (3 files)</h3>
+                <div class="sample-data">
+                    <ul>
+                        <li>D:\test-project\calculator.py</li>
+                        <li>D:\test-project\user_manager.py</li>
+                        <li>D:\test-project\database.py</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sample-screenshot">
+                <h3>📊 Summary Statistics</h3>
+                <div class="sample-stats">
+                    <div class="sample-stat">
+                        <div class="sample-stat-value">3</div>
+                        <div class="sample-stat-label">Total Files</div>
+                    </div>
+                    <div class="sample-stat">
+                        <div class="sample-stat-value">16</div>
+                        <div class="sample-stat-label">Functions Missing Docs</div>
+                    </div>
+                    <div class="sample-stat">
+                        <div class="sample-stat-value">3</div>
+                        <div class="sample-stat-label">Files Missing Docs</div>
+                    </div>
+                    <div class="sample-stat">
+                        <div class="sample-stat-value">3</div>
+                        <div class="sample-stat-label">Files Missing Tests</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 
@@ -336,7 +505,7 @@
 
                 displayResults(data);
             } catch (err) {
-                showError(err.message || 'Failed to connect to the server. Make sure server.py is running on port 5000.');
+                showError(err.message || 'Failed to connect to the local server at http://localhost:5000. Make sure server.py is running (run: python server.py)');
             } finally {
                 loading.classList.add('hidden');
                 analyzeBtn.disabled = false;
